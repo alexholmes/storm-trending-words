@@ -25,7 +25,7 @@ You can package a jar suitable for submitting to a Storm cluster with the comman
     $ mvn package
 
 This will package your code and all the non-Storm dependencies into a single "uberjar" at the path
-`target/storm-starter-{version}-jar-with-dependencies.jar`.
+`target/storm-trending-words-{version}-jar-with-dependencies.jar`.
 
 
 ## Running unit tests
@@ -40,8 +40,8 @@ yet run the included unit tests.
 
 To run in "local" mode (i.e. within the client JVM):
 
-    $ storm jar target/storm-trending-words-0.0.1-SNAPSHOT-jar-with-dependencies.jar storm.trending.TrendingWordsTopology
+    $ storm jar target/storm-trending-words-{version}-jar-with-dependencies.jar storm.trending.TrendingWordsTopology
 
 To run on a remote Storm cluster, simply add an argument which is the name of the topology:
 
-    $ storm jar target/storm-trending-words-0.0.1-SNAPSHOT-jar-with-dependencies.jar storm.trending.TrendingWordsTopology trending-search
+    $ storm jar target/storm-trending-words-{version}-jar-with-dependencies.jar storm.trending.TrendingWordsTopology trending-search
