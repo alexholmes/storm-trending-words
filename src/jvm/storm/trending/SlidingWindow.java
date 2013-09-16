@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * Maintains a map of items to time-bucketed counts.
  */
 public class SlidingWindow<T> implements Serializable {
   private static final Logger LOG = Logger.getLogger(SlidingWindow.class);

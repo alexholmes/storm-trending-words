@@ -14,7 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Maintains a sliding window of word counts, which is periodically emitted.
+ * Maintains a sliding window of word counts, which is updated with new words as they come in.
+ * Summed counts for each item in the window is also periodically emitted for downstream processing.
  */
 public class SlidingWindowBolt extends BaseRichBolt {
 

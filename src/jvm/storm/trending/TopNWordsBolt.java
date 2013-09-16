@@ -17,9 +17,10 @@ import java.util.*;
 public class TopNWordsBolt extends BaseRichBolt {
 
   private static final Logger LOG = Logger.getLogger(TopNWordsBolt.class);
-  List<WordCount> rankedWords = new ArrayList<WordCount>();
-  OutputCollector collector;
+  private final List<WordCount> rankedWords = new ArrayList<WordCount>(N);
   private static final WordCountComparator COMPARATOR = new WordCountComparator();
+  private static final int N = 10;
+  private OutputCollector collector;
 
   public static class WordCount {
     String word;
@@ -86,6 +87,10 @@ public class TopNWordsBolt extends BaseRichBolt {
 
     Collections.sort(rankedWords, COMPARATOR);
     Collections.reverse(rankedWords);
+
+    if (rankedWords.size() > N) {
+      rankedWords.remove(N);
+    }
 
     collector.ack(tuple);
   }
